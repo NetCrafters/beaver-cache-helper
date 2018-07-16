@@ -74,6 +74,11 @@ class FL_Cache_Buster {
 		if( class_exists( 'comet_cache' ) ) {
 			comet_cache::clear();
 		}
+		//Beaver Builder
+		if( class_exists( 'FLBuilderModel') ) {
+			FLBuilderModel::delete_asset_cache_for_all_posts();
+			error_log("Cleared Beaver Builder Post Cache");	
+		}
 		error_log( 'Cleared Caches' );
 	}
 	/**
